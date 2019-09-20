@@ -1,3 +1,16 @@
+## Support API at 9000
+start with
+```
+mvn clean install
+cd target
+java -jar running.... 
+```
+```
+POST http://localhost:9000/running (with JSON file)
+GET http://localhost:9000/running/STOPPED?page=1&size=1 (page and size is not necessary but return null if empty)
+DELETE http://localhost:9000/purge (clean all posted data, get will return default value result)
+```
+
 ## 7.11 model impl
 Dependencies,  
 Java object - db table(JPA annotation),
@@ -41,6 +54,16 @@ when?
 client and server need to exchange event at high frequency and low latency
 
 Spring websocket
+
+Compare with Rest
+REST:
+    Many urls, handful verb, links, stateless,
+WebSocket,
+    Single url to build http handshake, 
+    all message go through same tcp connections
+
+low frequency and low latency -> rest
+high ...      and high ... -> websocker
 ```
 
 ### Spring Data Rest

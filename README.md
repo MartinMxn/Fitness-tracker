@@ -30,3 +30,11 @@ reduce boilerplate code
 quickly setup services and applications
 same code, work anywhere
 ```
+
+#### change port by parameter
+```
+cd to folder
+mvn clean install
+cd target
+java -jar 'jar name' --server.port = 8888
+```

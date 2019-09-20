@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/**
+ * RestController & Controller: Controller may return not rest response
+ */
 @RestController
 public class RunningBulkUploadController {
     @Autowired
@@ -29,8 +33,8 @@ public class RunningBulkUploadController {
     /* /running/stop or /move ... */
     @RequestMapping(value = "/running/{movementType}", method = RequestMethod.GET)
     public Page<Location> findByMovementType(@PathVariable String movementType,
-                                             @RequestParam(name = "page", required = false) int page,
-                                             @RequestParam(name = "size", required = false) int size) {
+                                             @RequestParam(name = "page", required = false) Integer page,
+                                             @RequestParam(name = "size", required = false) Integer size) {
         return this.locationService.findByMovementType(movementType, PageRequest.of(page, size));
     }
 }
