@@ -11,6 +11,14 @@ GET http://localhost:9000/running/STOPPED?page=1&size=1 (page and size is not ne
 DELETE http://localhost:9000/purge (clean all posted data, get will return default value result)
 ```
 
+## hal browser
+```
+scan all your valid api
+and build frontend support
+
+powerful than postman
+```
+
 ## 7.11 model impl
 Dependencies,  
 Java object - db table(JPA annotation),

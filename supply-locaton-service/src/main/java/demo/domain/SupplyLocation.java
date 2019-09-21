@@ -1,6 +1,7 @@
 package demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -15,24 +16,31 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @RequiredArgsConstructor(onConstructor = @__(@PersistenceConstructor))
 @Document
-
 public class SupplyLocation {
+
     @Id
+    private String id;
     private String address1;
     private String address2;
     private String city;
 
+    @JsonIgnore
+    private final
     @GeoSpatialIndexed
-    private final Point location;
+    Point location;
+
     private String state;
     private String zip;
     private String type;
 
+    @SuppressWarnings("unused")
     private SupplyLocation() {
         this.location = new Point(0, 0);
     }
+
     @JsonCreator
-    public SupplyLocation(@JsonProperty("latitude") double latitude, @JsonProperty("longitude") double longitude) {
+    public SupplyLocation(@JsonProperty("latitude") double latitude,
+                          @JsonProperty("longitude") double longitude) {
         this.location = new Point(longitude, latitude);
     }
 

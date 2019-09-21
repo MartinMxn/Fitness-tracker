@@ -12,6 +12,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RepositoryRestResource(path = "locations", collectionResourceRel = "locations")
 public interface LocationRestRepository extends PagingAndSortingRepository<Location, Long> {
 
+    //rel - reference name
     @RestResource(path = "runningId", rel = "by-runningId")
     Page<Location> findByUnitInfoRunningId(@Param("runningId") String runningId, Pageable pageable);
 
