@@ -1,0 +1,11 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: running-location-simulator
+simulation:
+  service:
+    googleApiKey: AIzaSyDMdyiSlaOL1oRFdNIzNA-pyv_ewRaj10w
+com:
+  fitness-tracker:
+    distribution: http://localhost:9006
